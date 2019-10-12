@@ -1,4 +1,7 @@
-# supertest-postman
+supertest-postman
+=================
+
+[![Build Status](https://travis-ci.org/AndrewKeig/supertest-postman.svg?branch=master)](https://travis-ci.org/AndrewKeig/supertest-postman)
 
 This project will take a postman v.2 collection file and generate supertest tests.
 
