@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "297e0b4d-d9df-48ce-9481-bdfad6c03ee6",
+		"name": "example",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+        {
+			"name": "/profile",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "accesstoken",
+						"value": "{{accesstoken}}"
+                    },
+                    {
+						"key": "host",
+						"value": "{{host}}"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "andrew",
+							"type": "text"
+						},
+						{
+							"key": "mobile",
+							"value": "9030378009",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://{{host}}/profile",
+					"protocol": "http",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"profile"
+					]
+				}
+			},
+			"response": []
+		}
+    ],
+	"variable": [
+		{
+			"id": "f56ceb3b-fa66-4b08-a1c4-b4a8c7c019f5",
+			"key": "host",
+			"value": "localhost:3001",
+			"type": "string"
+        },
+        {
+			"id": "f52ceb3b-fa66-4b08-a1c4-b4a8c7c019f5",
+			"key": "accesstoken",
+			"value": "123456789",
+			"type": "string"
+		}
+	],
+	"protocolProfileBehavior": {}
+}
