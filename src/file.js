@@ -1,43 +1,45 @@
-const fs = require('fs')
+const fs = require('fs');
 
 exports.read = source => {
   try {
-    return fs.readFileSync(source, { encoding: 'utf-8' })
+    return fs.readFileSync(source, { encoding: 'utf-8' });
   } catch (e) {
     throw new Error(
       'Unable to find or read source file, please check source location'
-    )
+    );
   }
-}
+};
 
 exports.parse = file => {
   const schema =
-    'https://schema.getpostman.com/json/collection/v2.1.0/collection.json'
-  const error = 'Please provide a valid postman v2.1.0 collection'
+    'https://schema.getpostman.com/json/collection/v2.1.0/collection.json';
+  const error = 'Please provide a valid postman v2.1.0 collection';
 
   try {
-    const data = JSON.parse(file)
+    const data = JSON.parse(file);
     return data && data.info && data.info.schema !== schema
       ? { error }
-      : { data }
+      : { data };
   } catch (e) {
-    throw new Error(error)
+    throw new Error(error);
   }
-}
+};
 
-exports.write = (destination, filename, tests) => {
+exports.write = (filename, tests) => {
   try {
     fs.writeFileSync(filename, tests, {
       encoding: 'utf-8'
-    })
+    });
   } catch (e) {
     throw new Error(
       'Unable to write to file location',
-      `${destination}${filename}.test.js`
-    )
+      `${filename}.test.js`
+    );
   }
-}
+};
 
 exports.filename = (destination, filename) => {
-  return `${destination}${filename}.test.js`
-}
+  destination = destination || '';
+  filename.replace(/[ +/\\&;#]/g, '_');
+  return `${destination}${filename}.test.js`;
+};
