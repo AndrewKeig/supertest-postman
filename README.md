@@ -7,7 +7,7 @@ This project will take a postman v.2 collection file and generate supertest test
 
 ##
 
-`node src/index.js --s /source --d destination/`
+`node src/index.js -s /source -d destination/`
 
 ## Setup
 To setup this project:
