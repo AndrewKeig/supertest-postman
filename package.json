@@ -3,15 +3,19 @@
   "version": "1.0.0",
   "description": "This project will take a postman collection v2 file and generate supertest tests.",
   "main": "src/index.js",
+  "bin": {
+    "supertest-postman": "src/index.js"
+  },
   "scripts": {
     "fix": "prettier --write 'src/**/*.js'",
     "test": "jest --verbose",
     "coverage": "jest --coverage",
     "lint": "eslint './src/**/*.js'"
   },
-  "author": "Andrew Keig",
+  "author": "KevinMulholland forked from Andrew Keig's work",
   "license": "MIT",
   "devDependencies": {
+    "cz-conventional-changelog": "^3.0.2",
     "eslint": "^5.16.0",
     "eslint-config-prettier": "^4.3.0",
     "eslint-config-standard": "^12.0.0",
@@ -26,5 +30,10 @@
     "prettier": "^1.17.1",
     "supertest": "^4.0.2"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
 }
