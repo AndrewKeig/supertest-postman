@@ -1,4 +1,9 @@
+'use strict';
+
 const fs = require('fs');
+const debug = require('debug')('file');
+
+// ----------------------------------------------------------------------------
 
 exports.read = source => {
   try {
@@ -38,8 +43,9 @@ exports.write = (filename, tests) => {
   }
 };
 
-exports.filename = (destination, filename) => {
-  destination = destination || '';
-  filename.replace(/[ +/\\&;#]/g, '_');
-  return `${destination}${filename}.test.js`;
+exports.filename = (destination, testname) => {
+  // we either use the provided destination or a tidy version of the testname
+  testname = testname.replace(/[ (){}\[\]]/g, '').replace(/[ +/\\&;#]/g, '_').replace(/_+$/, '');
+  destination = destination || `${testname}.test.js`;
+  return destination;
 };

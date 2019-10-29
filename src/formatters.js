@@ -1,3 +1,10 @@
+
+'use strict';
+
+const debug = require('debug')('formatters');
+
+// ----------------------------------------------------------------------------
+
 const indent = '\n'.padEnd(9, ' ');
 
 const makeCode = (method = 'get') => {
@@ -104,18 +111,21 @@ const createTest = (name, request) => {
 };
 
 function makeTests (collection) {
+  if (!collection.item) {
+    throw new Error('Invalid input file');
+  }
   const tests = collection.item.map(req => {
     const { request, name } = req;
     if (request) {
       return createTest(name, request);
     } else {
-      // let subtests = "it('performs subtests', () => {\n";
+      debug('subtest version');
       let subtests = '';
       for (const element of req.item) {
         const { request, name } = element;
         subtests += createTest(`subtest ${name}  `, request);
       }
-      return subtests; // + '\n});';
+      return subtests;
     }
   });
 

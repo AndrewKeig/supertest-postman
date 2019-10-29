@@ -30,7 +30,9 @@
     "prettier": "^1.17.1",
     "supertest": "^4.0.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "debug": "^4.1.1"
+  },
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
