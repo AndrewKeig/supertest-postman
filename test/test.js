@@ -3,7 +3,7 @@ const exec = util.promisify(require('child_process').exec)
 
 describe('generate test', () => {
   beforeAll(async () => {
-    const cmd = 'node src/index.js --s test/collection.json --d test/'
+    const cmd = 'node src/index.js -s test/collection.json -d test/'
     await exec(cmd)
   })
 
