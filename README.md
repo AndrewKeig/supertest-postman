@@ -5,13 +5,14 @@ supertest-postman
 
 This project will take a postman v.2 collection file and generate supertest tests.
 
-##
-
-`node src/index.js --s /source --d destination/`
-
-## Setup
+## Install
 To setup this project:
-* `npm install`
+
+`npm install -g supertest-postman`
+
+## Usage
+
+`supertest-postman --s /source --d destination/`
 
 ## Testing
 To run tests:

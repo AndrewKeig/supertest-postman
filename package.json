@@ -1,8 +1,11 @@
 {
   "name": "supertest-postman",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "description": "This project will take a postman collection v2 file and generate supertest tests.",
   "main": "src/index.js",
+  "bin": {
+    "supertest-postman": "src/index.js"
+  },
   "scripts": {
     "fix": "prettier --write 'src/**/*.js'",
     "test": "jest --verbose",
@@ -26,5 +29,7 @@
     "prettier": "^1.17.1",
     "supertest": "^4.0.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "commander": "^4.1.1"
+  }
 }
