@@ -12,7 +12,7 @@ To setup this project:
 
 ## Usage
 
-`supertest-postman --s /source --d destination/`
+`supertest-postman -s /source -d destination/`
 
 ## Testing
 To run tests:
