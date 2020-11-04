@@ -11,7 +11,7 @@ const makeCode = (method = 'get') => {
 }
 
 const makeUrl = (url = {}) => {
-  return url && url.path ? `${url.path.join('/')}` : ''
+  return url && url.path ? `${url.path.join('/')}`.replace(/{{/gm,"${").replace(/}}/gm,"}") : ''
 }
 
 const makeHeaders = (headers = []) => {
@@ -76,8 +76,8 @@ const createTest = (name, request) => {
   describe('${request.method} ${name}', () => {
     it('returns with the correct response', done => {
       supertest(app)
-        .${request.method.toLowerCase()}('/${makeUrl(request.url)}')${content.join('')}
-        .expect(${makeCode(request.method)})
+        .${request.method.toLowerCase()}(\`/${makeUrl(request.url)}\`)${content.join('')}
+        .expect(${makeCode(request.method.toLowerCase())})
         .end((err, res) => {
           if (err) return done(err)
           done()
