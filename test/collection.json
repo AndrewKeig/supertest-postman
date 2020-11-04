@@ -41,7 +41,7 @@
 						"{{host}}"
 					],
 					"path": [
-						"profile"
+						"{{profilePath}}"
 					]
 				}
 			},
@@ -59,6 +59,12 @@
 			"id": "f52ceb3b-fa66-4b08-a1c4-b4a8c7c019f5",
 			"key": "accesstoken",
 			"value": "123456789",
+			"type": "string"
+		},
+		 {
+			"id": "f52ceb3b-fa66-4b08-a1c4-b4a8c7c019f5",
+			"key": "profilePath",
+			"value": "profile",
 			"type": "string"
 		}
 	],
